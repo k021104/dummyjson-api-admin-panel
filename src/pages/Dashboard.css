@@ -1,0 +1,358 @@
+/* DASHBOARD WRAPPER */
+.dashboard-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* HEADER SECTION */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.header-text p {
+  color: #94a3b8;
+  margin-top: 5px;
+  font-size: 0.95rem;
+}
+
+.last-updated {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.1);
+  padding: 8px 16px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+/* STATS CARDS WRAPPER */
+.dashboard-cards {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.premium-card {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  /* Desktop default */
+  flex: 1 1 calc(25% - 20px);
+  min-width: 250px;
+}
+
+/* Hover stays same */
+.premium-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* TABLET */
+@media (max-width: 992px) {
+  .premium-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+  .premium-card {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+}
+
+.card-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-content h4 {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.card-content p {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 8px 0 0 0;
+}
+
+.card-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+}
+
+.card-footer {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.trend-up {
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* SYSTEM STATUS SECTION */
+.glass-card {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #94a3b8;
+}
+
+.status-online {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pulse {
+  animation: pulse-op 1.5s infinite;
+}
+
+@keyframes pulse-op {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.charts-main-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+.chart-item-full {
+  width: 100%;
+}
+
+.chart-item-side-by-side {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  /* align-items: stretch; */
+}
+
+.premium-chart-card {
+  display: flex;
+  flex-direction: column;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect: Card thoda upar uthega aur glow karega */
+.premium-chart-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.card-header h3 {
+  font-size: 1rem;
+  color: #f1f5f9;
+  /* White color for titles */
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-header i {
+  color: #6366f1;
+  /* Icon color */
+}
+
+/* Specific Width Ratios */
+.flex-grow-2 {
+  flex: 2.5;
+  min-width: 400px;
+}
+
+/* User Growth Bada */
+.flex-grow-1 {
+  flex: 1.2;
+  min-width: 280px;
+}
+
+/* Category Chota */
+
+/* Chart Container Fix */
+.chart-canvas-container {
+  flex: 1;
+  width: 100%;
+  position: relative;
+}
+
+.chart-canvas-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-item-full .chart-canvas-container {
+  /* min-height: 360px; */
+}
+
+/* Legend/Label Visibility Fix (Force White Text) */
+canvas {
+  color: #ffffff !important;
+}
+
+@media (max-width: 992px) {
+  .chart-item-side-by-side {
+    flex-direction: column;
+  }
+}
+
+/* Category Section Container */
+.category-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+/* Chart Area with Relative Position for Center Text */
+.chart-area {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  /* Chota box hai isliye height kam rakhi hai */
+}
+
+.chart-center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.total-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.total-label {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+/* Legend Fix (Color Boxes) */
+.custom-legend-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* Do columns mein labels */
+  gap: 10px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.legend-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.legend-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-pill .name {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  /* White/Greyish color taaki dikhe */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Hover Effect on Legend */
+.legend-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(3px);
+  transition: 0.2s;
+}

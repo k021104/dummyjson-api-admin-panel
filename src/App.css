@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+/* App.css */
+* {
+  box-sizing: border-box; /* Sabse important line alignment ke liye */
+  margin: 0;
+  padding: 0;
+}
+
+.app-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #0f172a;
+  overflow-x: hidden; /* Horizontal scroll ko rokne ke liye */
+}
+
+.main-content {
+  flex-grow: 1; 
+  margin-left: 280px; /* Sidebar ki exact width */
+  padding: 40px;
+  width: calc(100% - 280px); /* Bachi hui width calculate karein */
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+    padding-top: 80px; /* Mobile toggle button ke niche jagah */
+  }
+}
+
+html {
+    overflow-y: scroll;
+}
