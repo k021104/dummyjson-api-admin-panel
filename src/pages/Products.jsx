@@ -280,7 +280,7 @@
 
 
 import React, { useEffect, useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import './Products.css';
 
 export default function Products() {

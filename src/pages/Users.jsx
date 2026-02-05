@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './Users.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export default function Users() {
     const [showForm, setShowForm] = useState(false);
