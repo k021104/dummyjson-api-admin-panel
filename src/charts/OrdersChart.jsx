@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Bar, Line, Pie } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -83,8 +83,7 @@ export default function OrderTrendsChart() {
     return (
         <div className="chart-container-premium">
             <div className="chart-header">
-                <h3 style={{ color: '#94a3b8', marginBottom: '10px' }}>Order Trends</h3>
-                {/* <span className="chart-badge" style={{ color: '#f8fafc', margin: '15px 0px !important' }}>+12.5% Revenue</span> */}
+                <h3 style={{marginBottom: '10px'}}>Order Trends</h3>
             </div>
             <Line ref={chartRef} data={chartData} options={options} />
         </div>

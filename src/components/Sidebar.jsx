@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import './Sidebar.css';
+import { useTheme } from '../context/ThemeContext'; 
+import '../pages/global.css';
 
 export default function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
+    const { theme, toggleTheme } = useTheme(); // Consume theme context
     const location = useLocation();
+    const navigate = useNavigate();
 
-    // Menu items array for easy management
     const menuItems = [
         { name: "Dashboard", path: "/", icon: "fa-solid fa-house-chimney" },
         { name: "Products", path: "/products", icon: "fa-solid fa-box-open" },
@@ -17,8 +19,6 @@ export default function Sidebar() {
 
     const toggleSidebar = () => setIsOpen(!isOpen);
 
-    const navigate = useNavigate();
-
     const handleLogout = () => {
         localStorage.removeItem("adminAuth");
         toast.info("Logged out successfully 👋");
@@ -27,12 +27,10 @@ export default function Sidebar() {
 
     return (
         <>
-            {/* Mobile Menu Button - Toggle Icon change on state */}
             <button className="mobile-btn" onClick={toggleSidebar}>
                 <i className={`fa-solid ${isOpen ? 'fa-xmark' : 'fa-bars-staggered'}`}></i>
             </button>
 
-            {/* Main Sidebar */}
             <div className={`sidebar-container ${isOpen ? 'active' : ''}`}>
                 <div className="sidebar-brand">
                     <div className="brand-icon">
@@ -47,13 +45,21 @@ export default function Sidebar() {
                             key={item.name}
                             to={item.path}
                             className={`menu-link ${location.pathname === item.path ? 'active' : ''}`}
-                            onClick={() => setIsOpen(false)} // Mobile par click karte hi close ho jaye
+                            onClick={() => setIsOpen(false)}
                         >
                             <i className={`${item.icon} menu-icon`}></i>
                             <span className="menu-text">{item.name}</span>
                             {location.pathname === item.path && <div className="active-indicator" />}
                         </Link>
                     ))}
+
+                    {/* --- THEME TOGGLE BUTTON --- */}
+                    <div className="menu-link theme-toggle-item" onClick={toggleTheme}>
+                        <i className={`fa-solid ${theme === 'light' ? 'fa-moon' : 'fa-sun'} menu-icon`}></i>
+                        <span className="menu-text mode-text">
+                            {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+                        </span>
+                    </div>
                 </nav>
 
                 <div className="sidebar-user">
@@ -66,7 +72,6 @@ export default function Sidebar() {
                 </div>
             </div>
 
-            {/* Background blur overlay for mobile screens */}
             {isOpen && <div className="sidebar-overlay" onClick={toggleSidebar}></div>}
         </>
     );

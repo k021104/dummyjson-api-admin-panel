@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import './Users.css';
 import { toast } from 'react-toastify';
+import './globalcss2.css';
 
 export default function Users() {
     const [showForm, setShowForm] = useState(false);
@@ -125,7 +125,7 @@ export default function Users() {
                 <div className="modal-overlay">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h3>{editingUser ? "Update User Profile" : "Create New Account"}</h3>
+                            <h3 className="addproduct-title">{editingUser ? "Update User Profile" : "Create New Account"}</h3>
                             <button className="close-modal" onClick={() => setShowForm(false)}>&times;</button>
                         </div>
                         <div className="modal-body">
@@ -169,149 +169,3 @@ export default function Users() {
         </div>
     );
 }
-
-
-// import React, { useState } from "react";
-
-// export default function UsersAdmin() {
-//   // 1️⃣ Initial dummy users
-//   const [users, setUsers] = useState([
-//     { id: 1, name: "Krishna", email: "krishna@gmail.com", role: "Admin" },
-//     { id: 2, name: "Rahul", email: "rahul@gmail.com", role: "User" }
-//   ]);
-
-//   // 2️⃣ Form state
-//   const [formData, setFormData] = useState({
-//     name: "",
-//     email: "",
-//     role: ""
-//   });
-
-//   // 3️⃣ Edit user id
-//   const [editId, setEditId] = useState(null);
-
-//   // 4️⃣ Handle input change
-//   function handleChange(e) {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value
-//     });
-//   }
-
-//   // 5️⃣ Add or Update user
-//   function handleSubmit(e) {
-//     e.preventDefault();
-
-//     if (editId) {
-//       // UPDATE
-//       setUsers(
-//         users.map((user) =>
-//           user.id === editId ? { ...user, ...formData } : user
-//         )
-//       );
-//       setEditId(null);
-//     } else {
-//       // CREATE
-//       const newUser = {
-//         id: Date.now(),
-//         ...formData
-//       };
-//       setUsers([...users, newUser]);
-//     }
-
-//     // Clear form
-//     setFormData({ name: "", email: "", role: "" });
-//   }
-
-//   // 6️⃣ Edit user
-//   function handleEdit(user) {
-//     setEditId(user.id);
-//     setFormData({
-//       name: user.name,
-//       email: user.email,
-//       role: user.role
-//     });
-//   }
-
-//   // 7️⃣ Delete user
-//   function handleDelete(id) {
-//     setUsers(users.filter((user) => user.id !== id));
-//   }
-
-//   return (
-//     <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
-//       <h2>User Management</h2>
-
-//       {/* FORM */}
-//       <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
-//         <input
-//           type="text"
-//           name="name"
-//           placeholder="Name"
-//           value={formData.name}
-//           onChange={handleChange}
-//           required
-//         />
-//         <br /><br />
-
-//         <input
-//           type="email"
-//           name="email"
-//           placeholder="Email"
-//           value={formData.email}
-//           onChange={handleChange}
-//           required
-//         />
-//         <br /><br />
-
-//         <input
-//           type="text"
-//           name="role"
-//           placeholder="Role"
-//           value={formData.role}
-//           onChange={handleChange}
-//           required
-//         />
-//         <br /><br />
-
-//         <button type="submit">
-//           {editId ? "Update User" : "Add User"}
-//         </button>
-//       </form>
-
-//       {/* USERS TABLE */}
-//       <table border="1" width="100%" cellPadding="10">
-//         <thead>
-//           <tr>
-//             <th>Name</th>
-//             <th>Email</th>
-//             <th>Role</th>
-//             <th>Actions</th>
-//           </tr>
-//         </thead>
-
-//         <tbody>
-//           {users.map((user) => (
-//             <tr key={user.id}>
-//               <td>{user.name}</td>
-//               <td>{user.email}</td>
-//               <td>{user.role}</td>
-//               <td>
-//                 <button onClick={() => handleEdit(user)}>Edit</button>{" "}
-//                 <button onClick={() => handleDelete(user.id)}>Delete</button>
-//               </td>
-//             </tr>
-//           ))}
-
-//           {users.length === 0 && (
-//             <tr>
-//               <td colSpan="4" align="center">
-//                 No users found
-//               </td>
-//             </tr>
-//           )}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// }

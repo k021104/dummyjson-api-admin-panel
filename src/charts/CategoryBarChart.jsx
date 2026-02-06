@@ -6,7 +6,6 @@ import {
     Tooltip,
     Legend,
 } from "chart.js";
-import '../pages/Dashboard.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -42,10 +41,10 @@ export default function CategoryChart() {
             {
                 data: categories.map((cat) => cat.count),
                 backgroundColor: CHART_COLORS,
-                borderColor: '#1e293b', // Card background se match karta border
-                borderWidth: 3,
-                hoverOffset: 15,
-                borderRadius: 5,
+                // borderColor: '#1e293b', // Card background se match karta border
+                borderWidth: 0,
+                hoverOffset: 10,
+                borderRadius: 0,
             },
         ],
     };
@@ -89,7 +88,7 @@ export default function CategoryChart() {
                             className="dot" 
                             style={{ backgroundColor: CHART_COLORS[index % CHART_COLORS.length] }}
                         ></span>
-                        <span className="name">{cat.name}</span>
+                        <span className="category-name" style={{fontSize: '12px'}}>{cat.name}</span>
                     </div>
                 ))}
             </div>

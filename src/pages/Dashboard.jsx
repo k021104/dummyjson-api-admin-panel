@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './Dashboard.css';
 import CategoryBarChart from '../charts/CategoryBarChart';
 import OrdersChart from '../charts/OrdersChart';
 import UsersGrowthChart from '../charts/UsersGrowthChart';
+import './globalcss2.css';
 
 export default function Dashboard() {
     const [counts, setCounts] = useState({ products: 0, users: 0, orders: 0 });
@@ -70,7 +70,7 @@ export default function Dashboard() {
 
             <div className="info-section">
                 <div className="glass-card">
-                    <h3 style={{color: '#fff'}}>System Status</h3>
+                    <h3>System Status</h3>
                     <div className="status-item">
                         <span>Server Response</span>
                         <span className="status-online">Online</span>

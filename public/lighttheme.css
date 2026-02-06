@@ -1,0 +1,208 @@
+body {
+ transition: all 0.3s ease;
+ background:#f8fafc;
+ color:#0f172a;
+}
+
+/* ROOT COLORS */
+:root {
+  --bg-dark: #ffffff;
+  --bg-card: #ffffff;
+  --accent: #6366f1;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+}
+
+/* SIDEBAR */
+
+.sidebar-container {
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+}
+
+.sidebar-brand h2 { color:#0f172a; }
+
+.menu-link {
+ color:#64748b;
+}
+
+.menu-link:hover {
+ background:#f1f5f9;
+ color:#0f172a;
+}
+
+.menu-link.active {
+ background:#eef2ff;
+ color:#6366f1;
+}
+
+.sidebar-user {
+ background:#f1f5f9;
+}
+
+.user-avatar {
+ background:#e5e7eb;
+}
+
+.user-name { color:#0f172a; }
+
+/* DASHBOARD */
+
+.page-title { color:#0f172a; }
+.header-text p { color:#64748b; }
+
+.premium-card,
+.premium-chart-card,
+.glass-card,
+.table-container-outer,
+.table-wrapper,
+.modal-content {
+ background:#ffffff;
+ border:1px solid #e5e7eb;
+ box-shadow:0 6px 15px rgba(0,0,0,.05);
+}
+
+.card-content h4 { color:#64748b; }
+.card-content p { color:#0f172a; }
+
+.card-footer {
+ border-top:1px solid #e5e7eb;
+ color:#64748b;
+}
+
+.card-header h3 { color:#0f172a; }
+
+/* INPUTS */
+
+input,
+textarea,
+.search-box input,
+.premium-select {
+ background:#f9fafb;
+ color:#0f172a;
+ border:1px solid #e5e7eb;
+}
+
+/* TABLES */
+
+.premium-table th,
+.order-table th {
+ background:#f8fafc;
+ color:#64748b;
+}
+
+.premium-table td,
+.order-table td {
+ color:#0f172a;
+ border-bottom:1px solid #e5e7eb;
+}
+
+.avatar-small,
+.table-avatar {
+ background:#e5e7eb;
+}
+
+.cat-badge,
+.age-pill {
+ background:#eef2ff;
+ color:#6366f1;
+}
+
+/* BUTTONS */
+
+.nav-link {
+ border:1px solid #e5e7eb;
+ color:#475569;
+}
+
+.nav-link:hover {
+ background:#6366f1;
+ color:white;
+}
+
+.btn-secondary {
+ border:1px solid #cbd5e1;
+ color:#475569;
+}
+
+/* MODAL */
+
+.modal-overlay {
+ background:rgba(0,0,0,.4);
+}
+
+.modal-header h3 { color:#0f172a; }
+
+.input-field label { color:#64748b; }
+
+/* STATUS */
+
+.status-select.pending {
+ background:#fef3c7;
+ color:#d97706;
+}
+
+.status-select.shipped {
+ background:#dbeafe;
+ color:#2563eb;
+}
+
+.status-select.delivered {
+ background:#d1fae5;
+ color:#059669;
+}
+
+.stock-status.success {
+ background:#d1fae5;
+ color:#059669;
+}
+
+.stock-status.danger {
+ background:#fee2e2;
+ color:#dc2626;
+}
+
+/* PAGINATION */
+
+.pagination-footer {
+ background:#f8fafc;
+}
+
+/* LEGEND */
+
+.legend-pill {
+ background:#f8fafc;
+ border:1px solid #e5e7eb;
+}
+
+.legend-pill .name {
+ color:#475569;
+}
+
+/* TOTAL CENTER TEXT */
+
+.total-num { color:#0f172a; }
+.total-label { color:#64748b; }
+
+/* PRICE */
+
+.price-cell { color:#059669; }
+
+/* STAT PILL */
+
+.stat-pill {
+ background:#f8fafc;
+ border:1px solid #e5e7eb;
+ color:#475569;
+}
+
+/* USER PAGE */
+
+.user-full-name { color:#0f172a; }
+.email-link { color:#64748b; }
+
+/* SPINNER */
+
+.spinner {
+ border-top-color:#10b981;
+}

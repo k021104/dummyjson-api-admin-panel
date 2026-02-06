@@ -9,7 +9,6 @@ import {
     Tooltip,
     Legend
 } from 'chart.js';
-import '../pages/Dashboard.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -65,8 +64,8 @@ export default function UserGrowthChart() {
     return (
         <div className="user-chart-container">
             <div className="chart-info">
-                <h3 style={{ color: '#94a3b8', marginBottom: '10px' }}>User Registrations</h3>
-                <p style={{ color: '#f8fafc', marginBottom: '10px', fontSize: '14px' }}>Monthly growth analysis</p>
+                <h3 style={{marginBottom: '30px'}}>Monthly growth analysis</h3>
+                {/* <p>Monthly growth analysis</p> */}
             </div>
             <Bar data={chartData} options={options} />
         </div>

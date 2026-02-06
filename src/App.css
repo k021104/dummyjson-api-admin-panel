@@ -47,7 +47,7 @@
   display: flex;
   width: 100%;
   min-height: 100vh;
-  background: #0f172a;
+  /* background: #0f172a; */
   overflow-x: hidden; /* Horizontal scroll ko rokne ke liye */
 }
 
@@ -72,4 +72,18 @@
 
 html {
     overflow-y: scroll;
+}
+
+.main-content {
+  margin-left: 280px; /* Width of your sidebar */
+  padding: 20px;
+  min-height: 100vh;
+  background-color: var(--bg-body); /* Uses the variable from ThemeContext */
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0; /* Full width on mobile */
+  }
 }
