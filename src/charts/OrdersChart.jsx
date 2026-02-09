@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Bar, Line, Pie } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
     CategoryScale,
