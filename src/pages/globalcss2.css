@@ -138,6 +138,7 @@ html[data-theme="light"] {
 .menu-link:hover {
   background: var(--link-hover);
   color: var(--text-main);
+  transform: translateX(6px);
 }
 
 .menu-link.active {
@@ -433,7 +434,7 @@ html[data-theme="light"] {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
 
   to {
@@ -456,6 +457,33 @@ html[data-theme="light"] {
   50% {
     opacity: 0.4;
   }
+}
+
+@keyframes cardUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.premium-card {
+  animation: cardUp 0.6s ease;
+}
+
+button {
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+button:active {
+  transform: scale(0.97);
 }
 
 .charts-main-grid {
@@ -664,6 +692,21 @@ canvas {
   flex-direction: column;
   gap: 25px;
   animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  animation: pop 0.3s ease;
 }
 
 /* TOP ACTIONS */
