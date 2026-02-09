@@ -88,6 +88,35 @@ html[data-theme="light"] {
   color: var(--accent);
 }
 
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.12);
+  transition: 0.3s;
+}
+
+.theme-icon:hover {
+  background: rgba(99, 102, 241, 0.25);
+  /* transform: rotate(20deg); */
+}
+
 .sidebar-menu {
   flex: 1;
   padding: 10px 15px;
@@ -313,6 +342,15 @@ html[data-theme="light"] {
     flex: 1 1 100%;
     min-width: 100%;
   }
+
+  .flex-grow-2,
+  .flex-grow-1 {
+    min-width: 100%;
+  }
+
+  .chart-canvas-container {
+    height: 250px;
+  }
 }
 
 .card-inner {
@@ -475,13 +513,13 @@ html[data-theme="light"] {
 /* Specific Width Ratios */
 .flex-grow-2 {
   flex: 2.5;
-  min-width: 400px;
+  /* min-width: 400px; */
 }
 
 /* User Growth Bada */
 .flex-grow-1 {
   flex: 1.2;
-  min-width: 280px;
+  /* min-width: 280px; */
 }
 
 /* Category Chota */
@@ -1382,6 +1420,13 @@ canvas {
     transform: rotate(360deg);
   }
 }
+
+.menu-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 15px 0;
+}
+
 
 /* RESPONSIVE MEDIA */
 @media (max-width: 600px) {

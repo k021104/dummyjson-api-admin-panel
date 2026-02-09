@@ -26,23 +26,29 @@ export default function Products() {
     });
 
     useEffect(() => {
-        const stored = localStorage.getItem("my_products_v3");
-        if (stored) {
-            setProducts(JSON.parse(stored));
-            setLoading(false);
-        } else {
-            fetch("https://dummyjson.com/products?limit=194")
-                .then(res => res.json())
-                .then(data => {
-                    setProducts(data.products);
-                    localStorage.setItem("my_products_v3", JSON.stringify(data.products));
-                    setLoading(false);
-                });
-        }
+        setLoading(true);
+
+        setTimeout(() => {
+            const stored = localStorage.getItem("my_products");
+
+            if (stored) {
+                setProducts(JSON.parse(stored));
+                setLoading(false);
+            } else {
+                fetch("https://dummyjson.com/products?limit=194")
+                    .then(res => res.json())
+                    .then(data => {
+                        setProducts(data.products);
+                        localStorage.setItem("my_products", JSON.stringify(data.products));
+                        setLoading(false);
+                    });
+            }
+        }, 800); 
     }, []);
 
+
     const saveToLocal = (data) => {
-        localStorage.setItem("my_products_v3", JSON.stringify(data));
+        localStorage.setItem("my_products", JSON.stringify(data));
     };
 
     /* --- Logic for Filtering & Pagination --- */
@@ -93,7 +99,7 @@ export default function Products() {
         <div className="products-page">
             <header className="page-header">
                 <div className="header-text">
-                    <h2 className="page-title">Inventory Dashboard</h2>
+                    <h2 className="page-title">Products</h2>
                     <p>Page {currentPage} of {totalPages || 1} ({filteredProducts.length} items)</p>
                 </div>
                 <button className="add-btn-premium" onClick={() => {
@@ -118,7 +124,12 @@ export default function Products() {
                 </div>
             </div>
 
-            {loading ? <div className="loader-wrapper"><div className="spinner"></div></div> : (
+            {loading ? (
+                <div className="loader-wrapper">
+                    <div className="spinner"></div>
+                    <p>Loading Directory...</p>
+                </div>
+            ) : (
                 <div className="table-container-outer">
                     <div className="table-responsive">
                         <table className="premium-table">
@@ -179,36 +190,36 @@ export default function Products() {
             )}
 
             {/* Modal for Add/Edit */}
-                {showForm && (
-                    <div className="modal-overlay">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h3>{editingProduct ? "Edit" : "Add"} Product</h3>
-                                <button className="close-modal" onClick={() => setShowForm(false)}>&times;</button>
-                            </div>
-                            <div className="modal-body">
-                                <div className="input-field"><label>Image URL</label><input value={formData.thumbnail} onChange={e => setFormData({ ...formData, thumbnail: e.target.value })} /></div>
-                                <div className="input-field"><label>Product Name</label><input value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} /></div>
-                                <div className="input-row three" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
-                                    <div className="input-field"><label>Price</label><input type="number" value={formData.price} onChange={e => setFormData({ ...formData, price: e.target.value })} /></div>
-                                    <div className="input-field"><label>Stock</label><input type="number" value={formData.stock} onChange={e => setFormData({ ...formData, stock: e.target.value })} /></div>
-                                    <div className="input-field"><label>Rating</label><input type="number" step="0.1" value={formData.rating} onChange={e => setFormData({ ...formData, rating: e.target.value })} /></div>
-                                    <div className="input-field">
-                                        <label>Category</label>
-                                        <select className="premium-select input-field" value={formData.category} onChange={e => setFormData({ ...formData, category: e.target.value })}>
-                                            <option value="">Select</option>
-                                            {staticCategories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
-                                        </select>
-                                    </div>
+            {showForm && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h3>{editingProduct ? "Edit" : "Add"} Product</h3>
+                            <button className="close-modal" onClick={() => setShowForm(false)}>&times;</button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="input-field"><label>Image URL</label><input value={formData.thumbnail} onChange={e => setFormData({ ...formData, thumbnail: e.target.value })} /></div>
+                            <div className="input-field"><label>Product Name</label><input value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} /></div>
+                            <div className="input-row three" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+                                <div className="input-field"><label>Price</label><input type="number" value={formData.price} onChange={e => setFormData({ ...formData, price: e.target.value })} /></div>
+                                <div className="input-field"><label>Stock</label><input type="number" value={formData.stock} onChange={e => setFormData({ ...formData, stock: e.target.value })} /></div>
+                                <div className="input-field"><label>Rating</label><input type="number" step="0.1" value={formData.rating} onChange={e => setFormData({ ...formData, rating: e.target.value })} /></div>
+                                <div className="input-field">
+                                    <label>Category</label>
+                                    <select className="premium-select input-field" value={formData.category} onChange={e => setFormData({ ...formData, category: e.target.value })}>
+                                        <option value="">Select</option>
+                                        {staticCategories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
+                                    </select>
                                 </div>
                             </div>
-                            <div className="modal-footer">
-                                <button className="btn-secondary" onClick={() => setShowForm(false)}>Cancel</button>
-                                <button className="btn-primary" onClick={handleSave}>Save</button>
-                            </div>
+                        </div>
+                        <div className="modal-footer">
+                            <button className="btn-secondary" onClick={() => setShowForm(false)}>Cancel</button>
+                            <button className="btn-primary" onClick={handleSave}>Save</button>
                         </div>
                     </div>
-                )}
-            </div>
-        );
-    }
+                </div>
+            )}
+        </div>
+    );
+}

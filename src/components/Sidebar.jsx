@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useTheme } from '../context/ThemeContext'; 
+import { useTheme } from '../context/ThemeContext';
 import '../pages/global.css';
 
 export default function Sidebar() {
@@ -32,11 +32,25 @@ export default function Sidebar() {
             </button>
 
             <div className={`sidebar-container ${isOpen ? 'active' : ''}`}>
-                <div className="sidebar-brand">
+                {/* <div className="sidebar-brand">
                     <div className="brand-icon">
                         <i className="fa-solid fa-bolt-lightning"></i>
                     </div>
                     <h2>Admin<span>Panel</span></h2>
+                </div> */}
+                <div className="sidebar-brand">
+
+                    <div className="brand-left">
+                        <div className="brand-icon">
+                            <i className="fa-solid fa-bolt-lightning"></i>
+                        </div>
+                        <h2>Admin<span>Panel</span></h2>
+                    </div>
+
+                    <div className="theme-icon" onClick={toggleTheme}>
+                        <i className={`fa-solid ${theme === 'light' ? 'fa-moon' : 'fa-sun'}`}></i>
+                    </div>
+
                 </div>
 
                 <nav className="sidebar-menu">
@@ -53,13 +67,15 @@ export default function Sidebar() {
                         </Link>
                     ))}
 
-                    {/* --- THEME TOGGLE BUTTON --- */}
-                    <div className="menu-link theme-toggle-item" onClick={toggleTheme}>
+                    <div className="menu-divider"></div>
+
+                    {/* Theme toggle BELOW menu */}
+                    {/* <div className="menu-link theme-toggle-item" onClick={toggleTheme}>
                         <i className={`fa-solid ${theme === 'light' ? 'fa-moon' : 'fa-sun'} menu-icon`}></i>
                         <span className="menu-text mode-text">
                             {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
                         </span>
-                    </div>
+                    </div> */}
                 </nav>
 
                 <div className="sidebar-user">
