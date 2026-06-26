@@ -34,7 +34,7 @@ export default function Dashboard() {
     ];
 
     return (
-        { loading ? (
+        loading ? (
             <div className="loader-wrapper">
                 <div className="spinner"></div>
                     <p>Loading Dashboard Data...</p>
@@ -126,4 +126,4 @@ export default function Dashboard() {
         </div>
     )
     );
-}
+
