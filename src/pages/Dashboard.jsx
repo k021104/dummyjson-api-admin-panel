@@ -38,8 +38,7 @@ export default function Dashboard() {
         {loading ? (
             <div className="loader-wrapper">
                 <div className="spinner"></div>
-                    <p>Loading Dashboard Data...</p>
-                </div>
+                <p>Loading Dashboard Data...</p>
             </div>
         ) : (
         <div className="dashboard-wrapper">
