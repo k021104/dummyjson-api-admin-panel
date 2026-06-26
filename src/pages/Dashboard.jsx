@@ -36,7 +36,7 @@ export default function Dashboard() {
     return (
     <>
         {loading ? (
-            <div className="loader-wrapper" style={{ marginTop: "20px" }}>
+            <div className="loader-wrapper" style={{ marginTop: "70px" }}>
                 <div className="spinner"></div>
                 <p>Loading Dashboard Data...</p>
             </div>
