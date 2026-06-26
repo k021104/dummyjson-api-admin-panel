@@ -9,6 +9,7 @@ export default function Dashboard() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        setLoading(true);
         // Parallel API fetching
         Promise.all([
             fetch("https://dummyjson.com/products?limit=1").then(res => res.json()),
@@ -33,6 +34,13 @@ export default function Dashboard() {
     ];
 
     return (
+        { loading ? (
+            <div className="loader-wrapper">
+                <div className="spinner"></div>
+                    <p>Loading Dashboard Data...</p>
+                </div>
+            </div>
+        ) : (
         <div className="dashboard-wrapper">
             <header className="page-header">
                 <div className="header-text">
@@ -45,7 +53,7 @@ export default function Dashboard() {
                     </span>
                 </div>
             </header>
-
+            
             <div className="dashboard-cards">
                 {stats.map((stat, index) => (
                     <div className="premium-card" key={index}>
@@ -116,5 +124,6 @@ export default function Dashboard() {
             </div>
 
         </div>
+    )
     );
 }
